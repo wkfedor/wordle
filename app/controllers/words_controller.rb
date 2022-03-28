@@ -21,6 +21,11 @@ class WordsController < ApplicationController
 
   # POST /words or /words.json
   def create
+
+    Rails.logger.debug('-------------------------')
+    Rails.logger.debug(word_params.inspect)
+    Rails.logger.debug('-------------------------')
+
     @word = Word.new(word_params)
 
     respond_to do |format|
