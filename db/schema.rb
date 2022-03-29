@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_163622) do
   create_table "words", force: :cascade do |t|
     t.string "word"
     t.integer "anynum"
-    t.integer "codeword"
+    t.bigint "codeword"
     t.string "a"
     t.string "b"
     t.string "c"
