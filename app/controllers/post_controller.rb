@@ -4,16 +4,13 @@ class PostController < ApplicationController
   require 'open_uri_redirections'
 
     def del
-
       Word.delete_all
-
-
       redirect_to "/words"
     end
 
 
 
-  def comb
+  def comb            #работа с сотавлением цепочки слов
 
 
 
@@ -25,8 +22,6 @@ class PostController < ApplicationController
 
 
   def index
-
-
       mass = workurl
       temp = ''
       mass.each do |i|
