@@ -3,7 +3,28 @@ class PostController < ApplicationController
   require 'nokogiri'
   require 'open_uri_redirections'
 
-    def index
+    def del
+
+      Word.delete_all
+
+
+      redirect_to "/words"
+    end
+
+
+
+  def comb
+
+
+
+
+
+  end
+
+
+
+
+  def index
 
 
       mass = workurl
