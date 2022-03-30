@@ -3,12 +3,25 @@
 <h1>Words</h1>
 
 <div id="words">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Username</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
   <% @words.each do |word| %>
     <%= render word %>
-    <p>
-      <%= link_to "Show this word", word %>
-    </p>
   <% end %>
+    </tbody>
+  </table>
+
 </div>
 
 <%= link_to "New word", new_word_path %>

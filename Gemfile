@@ -72,3 +72,4 @@ group :test do
 end
 
 gem 'open_uri_redirections', '~> 0.2.1'
+
