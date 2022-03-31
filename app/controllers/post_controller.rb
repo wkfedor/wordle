@@ -38,14 +38,28 @@ class PostController < ApplicationController
 
     @fourth=perebor(a)
 
-    @fourth.each_char do |b|   # как красиво сделать из строчки массив ?
-      a <<  b
-    end
+
+    @fourth.empty? == false ?  @fourth.each_char{|b|    a <<  b} : return
+
+    #do |b|   # как красиво сделать из строчки массив ?
+    #   a <<  b
+    #end
 
 
     @fifth=perebor(a)
 
+    sleep(1)
+
+    @fifth.empty? == true  ? myredirect : return
+
   end
+
+  def myredirect
+
+    redirect_to "/post/comb"
+
+  end
+
 
 def perebor(mass) #
 
