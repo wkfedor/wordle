@@ -39,7 +39,7 @@ class PostController < ApplicationController
     @fourth=perebor(a)
 
 
-    @fourth.empty? == false ?  @fourth.each_char{|b|    a <<  b} : return
+    @fourth.empty? == false ?  @fourth.each_char{|b|    a <<  b} : myredirect
 
     #do |b|   # как красиво сделать из строчки массив ?
     #   a <<  b
@@ -48,9 +48,12 @@ class PostController < ApplicationController
 
     @fifth=perebor(a)
 
-    sleep(1)
+    #sleep(1)
 
-    @fifth.empty? == true  ? myredirect : return
+    #@fifth.empty? == true  ? comb : ''
+
+
+
 
   end
 
@@ -58,6 +61,14 @@ class PostController < ApplicationController
 
     redirect_to "/post/comb"
 
+  end
+
+
+
+
+  def iskl
+
+    "and words.word not in ('вдруг')"
   end
 
 
@@ -72,7 +83,7 @@ if temp[0]==','     # переделей под тернарный операт�
   temp.slice!(0)
 end
 
-temp2=Word.where('words.a not in ('+temp+') and  words.b not in ('+temp+') and  words.c not in ('+temp+') and  words.d not in ('+temp+') and  words.e not in ('+temp+') and words.anynum=0').limit(1)
+temp2=Word.where('words.a not in ('+temp+') and  words.b not in ('+temp+') and  words.c not in ('+temp+') and  words.d not in ('+temp+') and  words.e not in ('+temp+') and words.anynum=0 ' + iskl ).limit(1)
 
 temp2.each do |rank|
 return  rank.word
