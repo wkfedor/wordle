@@ -11,12 +11,61 @@ class PostController < ApplicationController
 
 
   def comb            #работа с сотавлением цепочки слов
+    #Answer.order_by_rand.limit(1).all
+
+    #@first='адрес'
+    @first=Word.order("RANDOM()").first.word
+    a = Array.new
+
+    @first.each_char do |b|   # как красиво сделать из строчки массив ?
+      a <<  b
+    end
+
+    @second=perebor(a)
 
 
+    @second.each_char do |b|   # как красиво сделать из строчки массив ?
+      a <<  b
+    end
 
 
+    @third=perebor(a)
+
+
+    @third.each_char do |b|   # как красиво сделать из строчки массив ?
+      a <<  b
+    end
+
+    @fourth=perebor(a)
+
+    @fourth.each_char do |b|   # как красиво сделать из строчки массив ?
+      a <<  b
+    end
+
+
+    @fifth=perebor(a)
 
   end
+
+def perebor(mass) #
+
+temp=''
+  mass.each do |b|     # переделай под { ...   }
+    temp=temp+','+"'"+b+"'"
+  end
+
+if temp[0]==','     # переделей под тернарный оператор
+  temp.slice!(0)
+end
+
+temp2=Word.where('words.a not in ('+temp+') and  words.b not in ('+temp+') and  words.c not in ('+temp+') and  words.d not in ('+temp+') and  words.e not in ('+temp+') and words.anynum=0').limit(1)
+
+temp2.each do |rank|
+return  rank.word
+end
+
+end
+
 
 
 
