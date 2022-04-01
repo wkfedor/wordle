@@ -19,6 +19,8 @@ class PostController < ApplicationController
 
 
        #@first='адрес'
+    #@first=Word.order("RANDOM()").sample.word
+
     @first=Word.order("RANDOM()").sample.word
 
     Rails.logger.debug('-------------------------')
@@ -66,7 +68,7 @@ class PostController < ApplicationController
 
     @fifth=perebor(a)
 
-  # sleep(1)
+
 
     if @fifth.empty? == true
         temp=true
