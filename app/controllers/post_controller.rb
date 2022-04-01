@@ -12,10 +12,20 @@ class PostController < ApplicationController
 
   def comb            #работа с сотавлением цепочки слов
     #Answer.order_by_rand.limit(1).all
+    temp=true
 
-    #@first='адрес'
-    @first=Word.order("RANDOM()").first.word
-    a = Array.new
+
+     while temp do
+
+
+       #@first='адрес'
+    @first=Word.order("RANDOM()").sample.word
+
+    Rails.logger.debug('-------------------------')
+    Rails.logger.debug("first="+@first.to_s)
+    Rails.logger.debug('-------------------------')
+
+    a = []#Array.new
 
     @first.each_char do |b|   # как красиво сделать из строчки массив ?
       a <<  b
@@ -39,20 +49,38 @@ class PostController < ApplicationController
     @fourth=perebor(a)
 
 
-    @fourth.empty? == false ?  @fourth.each_char{|b|    a <<  b} : myredirect
+    if @fourth.empty? == false
+      @fourth.each_char{|b|    a <<  b}
+    else
+    ''#  redo
+    end
 
     #do |b|   # как красиво сделать из строчки массив ?
     #   a <<  b
     #end
 
+    Rails.logger.debug('-------------------------')
+    Rails.logger.debug("fourth="+@fourth.to_s)
+    Rails.logger.debug('-------------------------')
+
 
     @fifth=perebor(a)
 
-    #sleep(1)
+  # sleep(1)
 
-    #@fifth.empty? == true  ? comb : ''
+    if @fifth.empty? == true
+        temp=true
+    else
+    temp=false
+    end
 
 
+    Rails.logger.debug('-------------------------')
+    Rails.logger.debug("fifth="+@fifth.to_s)
+    Rails.logger.debug('-------------------------')
+
+
+     end
 
 
   end
@@ -68,7 +96,7 @@ class PostController < ApplicationController
 
   def iskl
 
-    "and words.word not in ('вдруг')"
+    "and words.word not in ('вдруг','кишмя','южный','бурый','взвив') and words.a!='ё' and words.b!='ё' and words.c!='ё' and words.d!='ё' and words.e!='ё'"
   end
 
 
