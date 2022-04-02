@@ -54,7 +54,7 @@ class PostController < ApplicationController
     if @fourth.empty? == false
       @fourth.each_char{|b|    a <<  b}
     else
-    ''#  redo
+    '' #  redo
     end
 
     #do |b|   # как красиво сделать из строчки массив ?
@@ -62,7 +62,7 @@ class PostController < ApplicationController
     #end
 
     Rails.logger.debug('-------------------------')
-    Rails.logger.debug("fourth="+@fourth.to_s)
+    Rails.logger.debug("четвертое слово="+@fourth.to_s)
     Rails.logger.debug('-------------------------')
 
 
