@@ -53,10 +53,11 @@ class PostController < ApplicationController
 
     if @fourth.empty? == false
       @fourth.each_char{|b|    a <<  b}
+      temp=false
     else
     '' #  redo
     end
-
+=begin
     #do |b|   # как красиво сделать из строчки массив ?
     #   a <<  b
     #end
@@ -80,7 +81,7 @@ class PostController < ApplicationController
     Rails.logger.debug('-------------------------')
     Rails.logger.debug("fifth="+@fifth.to_s)
     Rails.logger.debug('-------------------------')
-
+=end
 
      end
 
