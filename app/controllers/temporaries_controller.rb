@@ -8,10 +8,21 @@ class TemporariesController < ApplicationController
   end
 
   # GET /temporaries/1 or /temporaries/1.json
-  def show
+  def show 
+
+    string=[]
     string1='а','б'
     string2='а','б'
-    @temp=Word.ina(string1).inb(string2)
+    string3='а','б'
+    string4='а','б'
+    string5='а','б'
+
+    Temporary.find(params[:id]).dontlike.each_char do |x|
+    string=string << x
+    end
+    @temp2=''#string
+    @temp=Word.ina(string).inb(string).inc(string).ind(string).ine(string)
+    
   end
 
   # GET /temporaries/new

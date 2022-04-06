@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+temp2=<%= @temp2%><br/>
+
 <%= render @temporary %>
 temp1=<% @temp.each do |x|%>
 <%= x.word %>
@@ -11,3 +13,5 @@ temp1=<% @temp.each do |x|%>
 
   <%= button_to "Destroy this temporary", @temporary, method: :delete %>
 </div>
+
+
