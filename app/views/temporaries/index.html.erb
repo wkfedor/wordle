@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Temporaries</h1>
+
+<div id="temporaries">
+  <% @temporaries.each do |temporary| %>
+    <%= render temporary %>
+    <p>
+      <%= link_to "Show this temporary", temporary %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New temporary", new_temporary_path %>

@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @temporary %>
+temp1=<% @temp.each do |x|%>
+<%= x.word %>
+<% end %>
+
+<div>
+  <%= link_to "Edit this temporary", edit_temporary_path(@temporary) %> |
+  <%= link_to "Back to temporaries", temporaries_path %>
+
+  <%= button_to "Destroy this temporary", @temporary, method: :delete %>
+</div>

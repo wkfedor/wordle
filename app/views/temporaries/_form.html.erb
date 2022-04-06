@@ -1,0 +1,52 @@
+<%= form_with(model: temporary) do |form| %>
+  <% if temporary.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(temporary.errors.count, "error") %> prohibited this temporary from being saved:</h2>
+
+      <ul>
+        <% temporary.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :anylike, style: "display: block" %>
+    <%= form.text_field :anylike %>
+  </div>
+
+  <div>
+    <%= form.label :dontlike, style: "display: block" %>
+    <%= form.text_field :dontlike %>
+  </div>
+
+  <div>
+    <%= form.label :a, style: "display: block" %>
+    <%= form.text_field :a %>
+  </div>
+
+  <div>
+    <%= form.label :b, style: "display: block" %>
+    <%= form.text_field :b %>
+  </div>
+
+  <div>
+    <%= form.label :c, style: "display: block" %>
+    <%= form.text_field :c %>
+  </div>
+
+  <div>
+    <%= form.label :d, style: "display: block" %>
+    <%= form.text_field :d %>
+  </div>
+
+  <div>
+    <%= form.label :e, style: "display: block" %>
+    <%= form.text_field :e %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
