@@ -1,11 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
 temp2=<%= @temp2%><br/>
+temp3=<%= @temp3%><br/>
 
 <%= render @temporary %>
 temp1=<% @temp.each do |x|%>
 <%= x.word %>
 <% end %>
+<br/><br/><br/>
+temp0=<% @temp0.each do |y|%>
+  <%= y.word %>
+<% end %>
+
+
 
 <div>
   <%= link_to "Edit this temporary", edit_temporary_path(@temporary) %> |

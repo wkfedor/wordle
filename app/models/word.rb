@@ -11,5 +11,4 @@ class Word < ApplicationRecord
       scope :d, ->(amount) { where("d = (?)", amount) }
       scope :e, ->(amount) { where("e = (?)", amount) }
 
-
 end

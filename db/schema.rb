@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_05_162640) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
   enable_extension "plpgsql"
 
   create_table "temporaries", force: :cascade do |t|
@@ -27,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_162640) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "words", id: :bigint, default: nil, force: :cascade do |t|
+  create_table "words", force: :cascade do |t|
     t.string "word"
     t.integer "anynum"
     t.bigint "codeword"

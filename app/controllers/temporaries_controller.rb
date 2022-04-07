@@ -11,6 +11,7 @@ class TemporariesController < ApplicationController
   def show 
 
     string=[]
+    donts=[]
     string1='а','б'
     string2='а','б'
     string3='а','б'
@@ -20,9 +21,21 @@ class TemporariesController < ApplicationController
     Temporary.find(params[:id]).dontlike.each_char do |x|
     string=string << x
     end
-    @temp2=''#string
-    @temp=Word.ina(string).inb(string).inc(string).ind(string).ine(string)
-    
+
+
+    Temporary.find(params[:id]).anylike.each_char do |x|
+      donts=donts << x
+    end
+
+    donts = donts << Temporary.find(params[:id]).d
+
+
+    #donts =  Temporary.find(params[:id]).d
+
+    @temp2=Temporary.find(params[:id]).dontlike.length
+    #@temp3=donts1
+    @temp=Word.ina(string).inb(string).inc(string).ind(string).ine(string).d(Temporary.find(params[:id]).d)      # слова с возможным ключевым
+    @temp0=Word.ina(string).inb(string).inc(string).ind(string).ine(string).ina(donts).inb(donts).inc(donts).ind(donts).ine(donts)   # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
   end
 
   # GET /temporaries/new
