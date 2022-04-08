@@ -27,15 +27,55 @@ class TemporariesController < ApplicationController
       donts=donts << x
     end
 
-    donts = donts << Temporary.find(params[:id]).d
+
 
 
     #donts =  Temporary.find(params[:id]).d
 
     @temp2=Temporary.find(params[:id]).dontlike.length
     #@temp3=donts1
-    @temp=Word.ina(string).inb(string).inc(string).ind(string).ine(string).d(Temporary.find(params[:id]).d)      # слова с возможным ключевым
-    @temp0=Word.ina(string).inb(string).inc(string).ind(string).ine(string).ina(donts).inb(donts).inc(donts).ind(donts).ine(donts)   # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
+
+
+    @temp=Word.ina(string).inb(string).inc(string).ind(string).ine(string)     # слова с возможным ключевым
+
+
+
+
+    if Temporary.find(params[:id]).a !=''                         # как можно сделать запись короче, есть массив a,b,c,d,e работаем с ним
+      @temp=@temp.a(Temporary.find(params[:id]).a)
+    end
+
+    if Temporary.find(params[:id]).b !=''
+      @temp=@temp.b(Temporary.find(params[:id]).b)
+    end
+
+    if Temporary.find(params[:id]).c !=''
+      @temp=@temp.c(Temporary.find(params[:id]).c)
+    end
+
+    if Temporary.find(params[:id]).d !=''
+      @temp=@temp.d(Temporary.find(params[:id]).d)
+    end
+
+    if Temporary.find(params[:id]).e !=''
+      @temp=@temp.e(Temporary.find(params[:id]).e)
+    end
+
+    #@temp  #варианты слова для победы
+    #
+    #
+    #
+    #@temp0  слова с  неоткрытыми буквами для вскрытия поля, в идеале буквы неполвторяються с любыми открытыми
+
+
+    @temp0=Word.ina(string).inb(string).inc(string).ind(string).ine(string)  # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
+
+    if Temporary.find(params[:id]).anylike !=''
+    @temp=@temp.anylike(donts)
+    @temp0=@temp0.ina(donts).inb(donts).inc(donts).ind(donts).ine(donts)
+    end
+
+
   end
 
   # GET /temporaries/new

@@ -11,4 +11,6 @@ class Word < ApplicationRecord
       scope :d, ->(amount) { where("d = (?)", amount) }
       scope :e, ->(amount) { where("e = (?)", amount) }
 
+      scope :anylike, ->(amount) { where("a in (?) or b in (?) or c in (?) or d in (?) or e in (?)", amount,amount,amount,amount,amount) }
+
 end
