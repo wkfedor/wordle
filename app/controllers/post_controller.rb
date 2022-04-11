@@ -21,7 +21,7 @@ class PostController < ApplicationController
        #@first='адрес'
     #@first=Word.order("RANDOM()").sample.word
 
-    @first=Word.order("RANDOM()").sample.word
+    @first=Word.where("anynum = 0").order("RANDOM()").sample.word
 
     Rails.logger.debug('-------------------------')
     Rails.logger.debug("first="+@first.to_s)
@@ -114,7 +114,7 @@ if temp[0]==','     # переделей под тернарный операт�
   temp.slice!(0)
 end
 
-temp2=Word.where('words.a not in ('+temp+') and  words.b not in ('+temp+') and  words.c not in ('+temp+') and  words.d not in ('+temp+') and  words.e not in ('+temp+') and words.anynum=0 ' + iskl ).limit(1)
+temp2=Word.where('words.a not in ('+temp+') and  words.b not in ('+temp+') and  words.c not in ('+temp+') and  words.d not in ('+temp+') and  words.e not in ('+temp+') and words.anynum=0 ' + iskl ).order("RANDOM()").limit(1)
 
 temp2.each do |rank|
 return  rank.word

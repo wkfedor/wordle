@@ -26,7 +26,7 @@ class TemporariesController < ApplicationController
     Temporary.find(params[:id]).anylike.each_char do |x|
       donts=donts << x
     end
-
+p "p===="+donts.to_s
 
 
 
@@ -71,7 +71,19 @@ class TemporariesController < ApplicationController
     @temp0=Word.ina(string).inb(string).inc(string).ind(string).ine(string)  # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
 
     if Temporary.find(params[:id]).anylike !=''
-    @temp=@temp.anylike(donts)
+
+
+
+    #@temp=@temp.anylike(donts)     #  старая версия
+
+      donts.each do |x|             #  новая версия
+      @temp=@temp.likea("%#{x}%")   #  новая версия
+      end                           #  новая версия
+
+
+
+
+
     @temp0=@temp0.ina(donts).inb(donts).inc(donts).ind(donts).ine(donts)
     end
 

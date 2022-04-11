@@ -4,11 +4,11 @@ temp2=<%= @temp2%><br/>
 temp3=<%= @temp3%><br/>
 
 <%= render @temporary %>
-temp1=<% @temp.each do |x|%>
+<b>Варианты ответа</b>=<% @temp.each do |x|%>
 <%= x.word %>
 <% end %>
 <br/><br/><br/>
-temp0=<% @temp0.each do |y|%>
+<b>Раскрыть поле</b>=<% @temp0.each do |y|%>
   <%= y.word %>
 <% end %>
 
