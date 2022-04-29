@@ -41,7 +41,7 @@ p "p===="+donts.to_s
 
 
 
-    if Temporary.find(params[:id]).sc !=''                                     # доработать данный функционал
+    if Temporary.find(params[:id]).sc !=''                                     # доработать данный функционал, убираем из вариантов для  победы серые буквы
 
       @temp=@temp.inc(["е","т","ж"])
 
