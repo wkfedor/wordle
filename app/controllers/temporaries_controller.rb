@@ -8,7 +8,7 @@ class TemporariesController < ApplicationController
   end
 
   # GET /temporaries/1 or /temporaries/1.json
-  def show 
+  def show
 
     string=[]
     donts=[]
@@ -41,13 +41,17 @@ p "p===="+donts.to_s
 
 
 
-    if Temporary.find(params[:id]).sc !=''                                     # доработать данный функционал, убираем из вариантов для  победы серые буквы
 
-      @temp=@temp.inc(["е","т","ж"])
-
+    massnot=["sa","sb","sc","se","sd"]                                              #имена полей где не должно быть серой буквы
+    massnot.each do |x|
+    if Temporary.find(params[:id]).send(x) !=''                                     # доработать данный функционал, убираем из вариантов для  победы серые буквы
+      @temp=@temp.send(x,(Temporary.find(params[:id]).send(x).chars))
+    end
     end
 
 
+    #@temp=@temp.inc(Temporary.find(params[:id]).send(x).chars)
+    # render plain: "вывести текст"
 
 
 

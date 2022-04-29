@@ -5,6 +5,14 @@ class Word < ApplicationRecord
       scope :ind, ->(amount) { where("d not in (?)", amount) }
       scope :ine, ->(amount) { where("e not in (?)", amount) }
 
+
+      scope :sa, ->(amount) { where("a not in (?)", amount) }   # копия 5 строк выше, хочу что бы скопы совпадали с именем поля
+      scope :sb, ->(amount) { where("b not in (?)", amount) }
+      scope :sc, ->(amount) { where("c not in (?)", amount) }
+      scope :sd, ->(amount) { where("d not in (?)", amount) }
+      scope :se, ->(amount) { where("e not in (?)", amount) }
+
+
       scope :a, ->(amount) { where("a = (?)", amount) }
       scope :b, ->(amount) { where("b = (?)", amount) }
       scope :c, ->(amount) { where("c = (?)", amount) }
