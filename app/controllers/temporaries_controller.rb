@@ -145,6 +145,6 @@ p "p===="+donts.to_s
 
     # Only allow a list of trusted parameters through.
     def temporary_params
-      params.require(:temporary).permit(:anylike, :dontlike, :a, :b, :c, :d, :e)
+      params.require(:temporary).permit(:anylike, :dontlike, :a, :b, :c, :d, :e, :sa, :sb, :sc, :sd, :se)
     end
 end

@@ -16,3 +16,5 @@ class Word < ApplicationRecord
       scope :likea, ->(amount) { where("word like ?", amount) }
 
 end
+
+
