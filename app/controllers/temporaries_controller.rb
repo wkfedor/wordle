@@ -41,6 +41,16 @@ p "p===="+donts.to_s
 
 
 
+    if Temporary.find(params[:id]).sc !=''                                     # доработать данный функционал
+
+      @temp=@temp.inc(["е","т","ж"])
+
+    end
+
+
+
+
+
     if Temporary.find(params[:id]).a !=''                         # как можно сделать запись короче, есть массив a,b,c,d,e работаем с ним
       @temp=@temp.a(Temporary.find(params[:id]).a)
     end
