@@ -46,6 +46,7 @@ p "p===="+donts.to_s
     massnot.each do |x|
     if Temporary.find(params[:id]).send(x) !=''                                     # доработать данный функционал, убираем из вариантов для  победы серые буквы
       @temp=@temp.send(x,(Temporary.find(params[:id]).send(x).chars))
+      #@temp=@temp.send("sb",(Temporary.find(params[:id]).send(x).chars))
     end
     end
 
