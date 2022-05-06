@@ -21,7 +21,7 @@ class PostController < ApplicationController
        #@first='адрес'
     #@first=Word.order("RANDOM()").sample.word
 
-    @first=Word.where("anynum = 0").order("RANDOM()").sample.word
+    @first=Word.where("anynum = 0 and a in ('о','е','а','и','н','т','с','р','в','л','к') and b in ('о','е','а','и','н','т','с','р','в','л','к') and c in ('о','е','а','и','н','т','с','р','в','л','к') and d in ('о','е','а','и','н','т','с','р','в','л','к') and e in ('о','е','а','и','н','т','с','р','в','л','к')").order("RANDOM()").sample.word
 
     Rails.logger.debug('-------------------------')
     Rails.logger.debug("first="+@first.to_s)
