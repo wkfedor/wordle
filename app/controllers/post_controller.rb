@@ -104,7 +104,17 @@ def lettersumweight
    mas[x]=temp
    temp=0
  end
- render plain: mas.inspect
+
+  Word.where("a is not null and b is not null and c is not null and d is not null and e is not null").each do |word|     #перебираем все слова
+
+    word.lettersumweight=mas[word.a]+mas[word.b]+mas[word.c]+mas[word.d]+mas[word.e]
+    Rails.logger.debug(mas[word.a]+mas[word.b]+mas[word.c]+mas[word.d]+mas[word.e])
+    word.save
+
+
+  end
+
+# render plain: mas.inspect
 end
 
 #   render plain: Word.countletter("a",x).inspect
