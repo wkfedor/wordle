@@ -19,9 +19,18 @@ class Word < ApplicationRecord
       scope :d, ->(amount) { where("d = (?)", amount) }
       scope :e, ->(amount) { where("e = (?)", amount) }
 
+
+      scope :countletter, ->(a,b) { where( a=>b).count() }
+
+
+
       scope :anylike, ->(amount) { where("a in (?) or b in (?) or c in (?) or d in (?) or e in (?)", amount,amount,amount,amount,amount) }
 
       scope :likea, ->(amount) { where("word like ?", amount) }
+
+
+
+
 
 end
 

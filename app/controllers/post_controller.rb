@@ -95,14 +95,20 @@ class PostController < ApplicationController
   end
 
 def lettersumweight
+  mas={}
  alphabet.each do |x|  # перебираем все буквы и собираем статистику по нашей базе
-
-
-
+   temp=0
+   ['a','b','c','d','e'].each do |y|
+     temp=temp+Word.countletter(y,x)
+   end
+   mas[x]=temp
+   temp=0
  end
+ render plain: mas.inspect
 end
 
-
+#   render plain: Word.countletter("a",x).inspect
+#   return
 
 
 
