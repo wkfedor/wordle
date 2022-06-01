@@ -98,8 +98,8 @@ p "p===="+donts.to_s
 
 
 
-
-    @temp0=@temp0.ina(donts).inb(donts).inc(donts).ind(donts).ine(donts)
+# сортировка по anynum что бы на первое место попали слова без повторов букв
+    @temp0=@temp0.ina(donts).inb(donts).inc(donts).ind(donts).ine(donts).order(:anynum)
     end
 
 

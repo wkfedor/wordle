@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'post/comb'=>'post#comb'
   get 'post/del'=>'post#del'
   get 'post/index'=>'post#index'
+  get 'post/lettersumweight'=>'post#lettersumweight'
 end
