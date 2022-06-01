@@ -83,8 +83,8 @@ p "p===="+donts.to_s
     #@temp0  слова с  неоткрытыми буквами для вскрытия поля, в идеале буквы неполвторяються с любыми открытыми
 
 
-    @temp0=Word.ina(string).inb(string).inc(string).ind(string).ine(string)  # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
-
+    @temp0 = Word.ina(string).inb(string).inc(string).ind(string).ine(string)  # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
+    @temp1 = @temp0
     if Temporary.find(params[:id]).anylike !=''
 
 
