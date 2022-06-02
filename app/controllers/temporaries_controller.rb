@@ -26,9 +26,10 @@ class TemporariesController < ApplicationController
     Temporary.find(params[:id]).anylike.each_char do |x|
       donts=donts << x
     end
-p "p===="+donts.to_s
+    #p "p===="+donts.to_s
 
-
+    # render plain: donts
+    # return
 
     #donts =  Temporary.find(params[:id]).d
 
@@ -81,10 +82,14 @@ p "p===="+donts.to_s
     #
     #
     #@temp0  слова с  неоткрытыми буквами для вскрытия поля, в идеале буквы неполвторяються с любыми открытыми
+    #ender plain: string
+    #return
 
 
     @temp0 = Word.ina(string).inb(string).inc(string).ind(string).ine(string)  # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
-    @temp1 = @temp0
+
+    string.concat(donts)
+    @temp1 = Word.ina(string).inb(string).inc(string).ind(string).ine(string).order('anynum, lettersumweight DESC')  # слова с исключением букв в позициях a b c d e  для открытия дргуих слов
     if Temporary.find(params[:id]).anylike !=''
 
 

@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-temp2=<%= @temp2%><br/>
-temp3=<%= @temp3%><br/>
-
 <%= render @temporary %>
 <b>Варианты ответа</b>=<% @temp.each do |x|%>
 <%= x.word %>
 <% end %>
+
 <br/><br/><br/>
-<b>Раскрыть поле</b>=<% @temp0.each do |y|%>
+<b>Раскрыть поле без повторов</b>=<% @temp1.each do |x|%>
+  <%= x.word %>
+<% end %>
+
+<br/><br/><br/>
+<b>Раскрыть поле с повторами</b>=<% @temp0.each do |y|%>
   <%= y.word %>
 <% end %>
 
